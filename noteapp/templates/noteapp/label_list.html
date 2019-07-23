@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <title>Django CRUD application!</title>
+  </head>
+  <body>
+    <div class="container">
+        <h1>Label List!</h1>
+        <ul class="navbar-nav">
+            <a class="navbar-link"href="{% url 'label_new' %}">Take a label </a>
+
+          {% for label in object_list %}
+          <li><p>label ID: <a class="navbar-link" href="{% url 'label_edit' label.id %}">{{ label.id }}</a></p>
+          <p>Text: {{ label.text }}</p>
+            <a class="navbar-link"href="{% url 'label_delete' label.id %}">Delete</a>
+
+          </li>
+    {% endfor %}
+        </ul>
+    </div>
+  </body>
+</html>
